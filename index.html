@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>High Garden Petrópolis | Melnick</title>
+  <meta name="description" content="High Garden Petrópolis. Até 3 suítes, com plantas de 87 a 140 m².">
+  <style>
+    :root {
+      --brown: #2b1d18;
+      --cream: #f4efe7;
+      --green: #477d70;
+      --ink: #2d211c;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .page { width: 100%; overflow: hidden; }
+
+    /* IMPORTANTE: conforme solicitado, 01 = header e 02 = seção do formulário. */
+    .section {
+      position: relative;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: 100% 100%;
+    }
+
+    .hero {
+      aspect-ratio: 1334 / 894;
+      background-image: url('https://github.com/luizfranca-alt/fonts-cdn/blob/main/LPHIGH_01.png?raw=true');
+      background-color: var(--brown);
+    }
+
+    .details {
+      position: absolute;
+      left: 50%;
+      bottom: 4.5%;
+      width: min(86%, 760px);
+      transform: translateX(-50%);
+      text-align: center;
+      color: #f8f2eb;
+    }
+
+    .details__main {
+      margin: 0 0 12px;
+      font-size: clamp(15px, 1.55vw, 24px);
+      font-weight: 400;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .details__address {
+      margin: 0 0 30px;
+      font-size: clamp(11px, 1.05vw, 16px);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .details__wait {
+      margin: 0;
+      color: var(--green);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(22px, 2.2vw, 34px);
+      font-weight: 400;
+    }
+
+    .lead-section {
+      aspect-ratio: 1334 / 935;
+      background-image: url('https://github.com/luizfranca-alt/fonts-cdn/blob/main/LPHIGH_02.png?raw=true');
+      background-color: var(--cream);
+    }
+
+    .intro {
+      position: absolute;
+      top: 5.2%;
+      left: 50%;
+      width: min(68%, 820px);
+      transform: translateX(-50%);
+      margin: 0;
+      text-align: center;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(18px, 2vw, 29px);
+      line-height: 1.18;
+      letter-spacing: .02em;
+    }
+
+    .intro strong {
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    .lead-form {
+      position: absolute;
+      top: 28.5%;
+      left: 52.2%;
+      width: 29.5%;
+      max-width: 410px;
+    }
+
+    .lead-form__title {
+      margin: 0 0 20px;
+      text-align: center;
+      font-size: clamp(12px, 1.25vw, 18px);
+      line-height: 1.45;
+      letter-spacing: .055em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .field { margin-bottom: 15px; }
+
+    .field label {
+      display: block;
+      margin: 0 0 6px 12px;
+      font-size: clamp(9px, .8vw, 12px);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .field input {
+      display: block;
+      width: 100%;
+      height: clamp(38px, 4vw, 58px);
+      padding: 0 17px;
+      border: 2px solid var(--ink);
+      border-radius: 13px;
+      background: rgba(244, 239, 231, .84);
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(71, 125, 112, .16);
+    }
+
+    .submit-wrap { text-align: center; margin-top: 28px; }
+
+    .submit-button {
+      min-width: 138px;
+      padding: 12px 28px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--green);
+      color: #fff;
+      font-size: clamp(10px, .9vw, 13px);
+      letter-spacing: .055em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .submit-button:hover { filter: brightness(.94); }
+
+    .form-message {
+      min-height: 18px;
+      margin: 12px 0 0;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .brand {
+      position: absolute;
+      left: 50%;
+      bottom: 7.2%;
+      transform: translateX(-50%);
+      margin: 0;
+      color: #000;
+      font-family: Arial Black, Arial, Helvetica, sans-serif;
+      font-size: clamp(34px, 4.6vw, 66px);
+      font-weight: 900;
+      letter-spacing: -.075em;
+      line-height: 1;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        aspect-ratio: 1334 / 1120;
+        background-size: cover;
+        background-position: center top;
+      }
+
+      .details { bottom: 4%; }
+      .details__address { margin-bottom: 16px; }
+
+      .lead-section {
+        aspect-ratio: auto;
+        min-height: 900px;
+        background-size: auto 100%;
+        background-position: center top;
+      }
+
+      .intro {
+        top: 5%;
+        width: 82%;
+        font-size: 20px;
+      }
+
+      .lead-form {
+        top: 48%;
+        left: 50%;
+        width: min(82%, 390px);
+        transform: translateX(-50%);
+      }
+
+      .lead-form__title { font-size: 14px; }
+      .field label { font-size: 10px; }
+      .field input { height: 48px; background: rgba(244, 239, 231, .94); }
+      .brand { bottom: 5%; font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="section hero" aria-label="High Garden Petrópolis">
+      <div class="details">
+        <p class="details__main">Até 3 suítes | 87 a 140 m²</p>
+        <p class="details__address">Em breve na Rua Murilo Furtado, 270</p>
+        <p class="details__wait">Aguarde</p>
+      </div>
+    </section>
+
+    <section class="section lead-section" aria-label="Cadastro High Garden">
+      <p class="intro">
+        No alto do bairro <strong>Petrópolis</strong>, está chegando<br>
+        um lugar pensado para você se sentir bem,<br>
+        em todos os sentidos.
+      </p>
+
+      <form class="lead-form" id="leadForm" novalidate>
+        <h2 class="lead-form__title">Cadastre-se e receba<br>informações em primeira mão:</h2>
+
+        <div class="field">
+          <label for="name">Nome:</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Telefone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+
+        <div class="submit-wrap">
+          <button class="submit-button" type="submit">Cadastre-se</button>
+        </div>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+
+      <p class="brand" aria-label="Melnick">melnick</p>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const phone = document.getElementById('phone');
+    const message = document.getElementById('formMessage');
+
+    phone.addEventListener('input', () => {
+      const digits = phone.value.replace(/\D/g, '').slice(0, 11);
+      if (digits.length <= 10) {
+        phone.value = digits.replace(/(\d{2})(\d{0,4})(\d{0,4})/, (_, ddd, p1, p2) => {
+          return [ddd ? `(${ddd})` : '', p1 ? ` ${p1}` : '', p2 ? `-${p2}` : ''].join('');
+        });
+      } else {
+        phone.value = digits.replace(/(\d{2})(\d{0,5})(\d{0,4})/, (_, ddd, p1, p2) => {
+          return [ddd ? `(${ddd})` : '', p1 ? ` ${p1}` : '', p2 ? `-${p2}` : ''].join('');
+        });
+      }
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      message.textContent = '';
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      message.textContent = 'Cadastro validado. A integração com o CRM será incluída posteriormente.';
+    });
+  </script>
+</body>
+</html>
